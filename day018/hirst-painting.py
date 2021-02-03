@@ -32,6 +32,7 @@ tim = turtle.Turtle()
 turtle.colormode(255)
 tim.up()
 tim.speed("fastest")
+tim.hideturtle()
 
 
 def dot_row():
