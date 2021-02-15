@@ -1,0 +1,4 @@
+Hello, my name is Rain.
+I am 42 years old.
+My favourite food is chocolate.
+New text.
