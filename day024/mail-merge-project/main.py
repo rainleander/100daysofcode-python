@@ -1,12 +1,13 @@
-# TODO: Create a letter using starting_letter.txt
-# for each name in invited_names.txt
-# Replace the [name] placeholder with the actual name.
-# Save the letters in the folder "ReadyToSend" with the format letter_to_NAME.txt
+names = []
+with open("Input/Names/invited_names.txt") as data:
+    names = [line.strip() for line in data]
 
-# Hint1: This method will help you: https://www.w3schools.com/python/ref_file_readlines.asp
-# Hint2: This method will also help you: https://www.w3schools.com/python/ref_string_replace.asp
-# Hint3: THis method will help you: https://www.w3schools.com/python/ref_string_strip.asp
+starting_letter_list = []
+with open("Input/Letters/starting_letter.txt", mode="r") as starting_letter:
+    starting_letter_list = starting_letter.readlines()
 
-# open("Input/Letters/starting_letter.txt")
-# open("Input/Names/invited_names.txt")
-# open("Output/ReadyToSend/example.txt")
+new_address = []
+for x in range(len(names)):
+    new_address = starting_letter_list[0].replace("[name]", names[x])
+    with open(f"Output/ReadyToSend/letter_to_{names[x]}.txt", mode="w") as file:
+        file.write(f"{new_address}\n{starting_letter_list[2]}\n{starting_letter_list[4]}\n{starting_letter_list[6]}")
