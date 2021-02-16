@@ -1,8 +1,6 @@
-names = []
 with open("Input/Names/invited_names.txt") as data:
     names = [line.strip() for line in data]
 
-starting_letter_list = []
 with open("Input/Letters/starting_letter.txt", mode="r") as starting_letter:
     starting_letter_list = starting_letter.readlines()
 
