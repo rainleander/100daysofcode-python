@@ -45,13 +45,31 @@ import pandas
 # monday_f = (monday.temp * 1.8) + 32
 # print(f"{monday_f} F")
 
-# Create a dataframe from scratch
+# # Create a dataframe from scratch
+# data_dict = {
+#     "students": ["Amy", "James", "Angela"],
+#     "scores": [76, 56, 65],
+# }
+#
+# data = pandas.DataFrame(data_dict)
+# print(data)
+#
+# data.to_csv("new_data.csv")
+
+# Squirrel Challenge
+# Create a CSV called squirrel_count.csv with Fur Color
+# and Count based on the Primary Fur Color Column
+# In 2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv
+
+data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+fur_color = data["Primary Fur Color"]
+gray_fur = len(data[data["Primary Fur Color"] == "Gray"])
+red_fur = len(data[data["Primary Fur Color"] == "Cinnamon"])
+black_fur = len(data[data["Primary Fur Color"] == "Black"])
+
 data_dict = {
-    "students": ["Amy", "James", "Angela"],
-    "scores": [76, 56, 65],
+    "Fur Color": ["gray", "red", "black"],
+    "Count": [gray_fur, red_fur, black_fur],
 }
-
-data = pandas.DataFrame(data_dict)
-print(data)
-
-data.to_csv("new_data.csv")
+new_data = pandas.DataFrame(data_dict)
+new_data.to_csv("squirrel_count.csv")
