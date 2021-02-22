@@ -1,4 +1,4 @@
-# List Comprehension
+# List Comprehension Notes
 # Create a new list from a previous list
 # new_list = [new_item for item in list]
 numbers = [1, 2, 3]
