@@ -26,10 +26,10 @@ while len(correct_answers) < 51:
     titled_answer_state = answer_state.title()
 
     if titled_answer_state == "Exit":
-        missing_states = []
-        for state in state_list:
-            if state not in correct_answers:
-                missing_states.append(state)
+        missing_states = [state for state in state_list if state not in correct_answers]
+        # for state in state_list:
+        #     if state not in correct_answers:
+        #         missing_states.append(state)
         missing_data = pandas.DataFrame(missing_states)
         missing_data.to_csv("states_to_learn.csv")
         break
