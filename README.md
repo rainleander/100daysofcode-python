@@ -1,41 +1,13 @@
-## List Comprehension 1
+# 100daysofcode
 
-# Instructions
+These are the resulting files of the daily coding challenges.
 
-You are going to write a List Comprehension to create a new list called `squared_numbers`. This new list should contain every number in the list `numbers` but each number should be squared.
+[100 Days of Code - The Complete Python Pro Bootcamp for 2021](https://www.udemy.com/course/100-days-of-code/)
+Created by [Dr. Angela Yu](https://www.udemy.com/course/100-days-of-code/#instructor-1)
 
-```
-e.g. `4 * 4 = 16`
-```
+Master Python by building 100 projects in 100 days. 
+Learn to build websites, games, apps, plus scraping and data science.
 
-```
-4 squared equals 16.
-```
+## Description from Udemy
 
-**DO NOT** modify the List `numbers` directly. Try to use **List Comprehension** instead of a **Loop**.
-
-# Example Output
-
-```
-[1, 1, 4, 9, 25, 64, 169, 441, 1156, 3025]
-```
-
-# Hint
-
-1. Use the keyword method for starting the List comprehension and fill in the relevant parts.
-
-2. Make sure the squared_numbers is printed into the console for the code checking to work.
-
-# Test Your Code
-
-Before checking the solution, try copy-pasting your code into this repl: 
-
-[https://repl.it/@appbrewery/day-26-1-test-your-code](https://repl.it/@appbrewery/day-26-1-test-your-code)
-
-This repl includes my testing code that will check if your code meets this assignment's objectives. 
-
-
-
-# Solution
-
-[https://repl.it/@appbrewery/day-26-1-solution](https://repl.it/@appbrewery/day-26-1-solution)
+Welcome to the 100 Days of Code - The Complete Python Pro Bootcamp, the only course you need to learn to code with Python. With over 100,000 ⭐️⭐️⭐️⭐️⭐️ reviews and a 4.8 average, my courses are some of the HIGHEST RATED courses in the history of Udemy! 100 days, 1 hour per day, learn to build 1 project per day, this is how you master Python. At 56+ hours, this Python course is without a doubt the most comprehensive Python course available anywhere online. Even if you have zero programming experience, this course will take you from beginner to professional.
