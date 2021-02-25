@@ -7,7 +7,7 @@ window.config(padx=50, pady=50)
 
 
 def calculate_button():
-    kms = int(miles_input.get()) * 1.60934
+    kms = float(miles_input.get()) * 1.60934
     km_calculation_label.config(text=kms)
 
 
