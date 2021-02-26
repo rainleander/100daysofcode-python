@@ -1,0 +1,12 @@
+Another Test Website | angela@gmail.com | 321654
+Yet Another Website | angela@gmail.com | 987654
+Test Website | angela@gmail.com | 321654Google | angela@gmail.com | 654987asdf;lkj | angela@gmail.com |
+asdfasdf | angela@gmail.com | 621684987 | angela@gmail.com | asdf with the return line | angela@gmail.com | asdf321
+why doesn't it do a new line anymore | angela@gmail.com | werd
+wait; unless i restart the file? | angela@gmail.com | mebbe
+I'm so confused | angela@gmail.com | this doesn't make sense
+what if i'm looking at the file while it's happening? | angela@gmail.com | good test
+asdf | angela@gmail.com | asdf
+ | angela@gmail.com | 
+testing the is_ok boolean | angela@gmail.com | 321654987
+asdf | angela@gmail.com | asdfasdf
