@@ -61,6 +61,25 @@ def save():
             password_input.delete(0, END)
 
 
+# ---------------------------- WEBSITE SEARCH ------------------------------- #
+def find_password():
+    website = website_input.get()
+    try:
+        # search for the website in the data.json file
+        # return the message box with the website as the title and the username / password as text / OK button
+        with open("data.json", mode="r") as file:
+            data = json.load(file)
+            if website in data:
+                username = data[website]["email"]
+                password = data[website]["password"]
+                messagebox.showinfo(title=website, message=f"Username: {username}\nPassword: {password}")
+            else:
+                messagebox.showinfo(title=website, message="No details for that website exist.")
+    except FileNotFoundError:
+        # catch an exception that might occur to access the data.json showing a messagebox "No Data File Found"
+        messagebox.showerror(title="File Not Found Error", message="No Data File Found")
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Password Manager")
@@ -75,9 +94,12 @@ canvas.grid(column=0, row=0, columnspan=3)
 website_label = Label(text="Website:")
 website_label.grid(column=0, row=1)
 
-website_input = Entry(width=35)
-website_input.grid(column=1, row=1, columnspan=2)
+website_input = Entry(width=21)
+website_input.grid(column=1, row=1)
 website_input.focus()
+
+website_search = Button(text="Search", width=10, command=find_password)
+website_search.grid(column=2, row=1)
 
 email_username_label = Label(text="Username:")
 email_username_label.grid(column=0, row=2)
