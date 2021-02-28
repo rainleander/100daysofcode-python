@@ -21,7 +21,7 @@ card_front_image = PhotoImage(file="images/card_front.png")
 card_back_image = PhotoImage(file="images/card_back.png")
 canvas.create_image(400, 263, image=card_front_image)
 card_text_title = canvas.create_text(400, 163, text="Title", fill="black", font=("Arial", 40, "italic"))
-card_text_word = canvas.create_text(400, 263, text="Word", fill="black", font=("Arial", 60, "bold"))
+card_text_word = canvas.create_text(400, 263, text="word", fill="black", font=("Arial", 60, "bold"))
 canvas.grid(column=0, row=0, columnspan=2)
 
 red_button_image = PhotoImage(file="images/wrong.png")
