@@ -1,7 +1,6 @@
 from tkinter import *
 
 BACKGROUND_COLOR = "#B1DDC6"
-
 # ---------------------------- CREATE NEW FLASH CARDS ------------------------------- #
 
 
@@ -11,9 +10,9 @@ BACKGROUND_COLOR = "#B1DDC6"
 # ---------------------------- SAVE PROGRESS ------------------------------- #
 
 
-# ---------------------------- UI SETUP ------------------------------- #
+# ---------------------------- TKINTER UI SETUP ------------------------------- #
 window = Tk()
-window.title("Flashy")
+window.title("Flashy McFlasherton Flashface")
 window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
 
 canvas = Canvas(width=800, height=526, bg=BACKGROUND_COLOR, highlightthickness=0)
@@ -33,4 +32,3 @@ green_button = Button(image=green_button_image, highlightthickness=0)
 green_button.grid(column=1, row=1)
 
 window.mainloop()
-
