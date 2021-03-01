@@ -55,9 +55,38 @@
 # date_of_birth = dt.datetime(year=1976, month=5, day=24)
 # print(date_of_birth)
 
-# ----- Motivational Quotes Challenge ----- # 
+# ----- Motivational Quotes Challenge ----- #
 import datetime as dt
 import smtplib
+import random
+
+now = dt.datetime.now()
+today = now.weekday()
+
+my_gmail_email = "leanderscode@gmail.com"
+gmail_password = "abcdefg123456789!!"
+gmail_connection = smtplib.SMTP("smtp.gmail.com", port=587)
+my_yahoo_email = "leanderscode@yahoo.com"
+
+
+def random_quote():
+    with open("quotes.txt", mode="r") as file:
+        read_file = file.read().splitlines()
+        qotd = random.choice(read_file)
+        return qotd
+
 
 def send_email():
-    
+    quote = random_quote()
+    with gmail_connection as connect:
+        connect.starttls()
+        connect.login(user=my_gmail_email, password=gmail_password)
+        connect.sendmail(
+            from_addr=my_gmail_email,
+            to_addrs=my_yahoo_email,
+            msg=f"Subject:Monday's Motivation\n\n{quote}"
+        )
+
+
+if today == 0:
+    send_email()
