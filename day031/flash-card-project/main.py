@@ -3,10 +3,16 @@ import pandas
 import random
 
 BACKGROUND_COLOR = "#B1DDC6"
-# ---------------------------- CREATE NEW FLASH CARDS ------------------------------- #
-data = pandas.read_csv("data/french_words.csv")
-data_dict = data.to_dict(orient="records")
 random_card = {}
+data_dict = {}
+# ---------------------------- CREATE NEW FLASH CARDS ------------------------------- #
+try:
+    data = pandas.read_csv("data/words_to_learn.csv")
+except FileNotFoundError:
+    original_data = pandas.read_csv("data/french_words.csv")
+    data_dict = original_data.to_dict(orient="records")
+else:
+    data_dict = data.to_dict(orient="records")
 
 
 def next_word():
@@ -31,7 +37,10 @@ def flip_card():
 
 # ---------------------------- SAVE PROGRESS ------------------------------- #
 def save_progress():
-    pass
+    data_dict.remove(random_card)
+    unknown_data = pandas.DataFrame(data_dict)
+    unknown_data.to_csv("data/words_to_learn.csv", index=False)
+    next_word()
 
 
 # ---------------------------- TKINTER UI SETUP ------------------------------- #
@@ -54,7 +63,7 @@ red_button = Button(image=red_button_image, highlightthickness=0, command=next_w
 red_button.grid(column=0, row=1)
 
 green_button_image = PhotoImage(file="images/right.png")
-green_button = Button(image=green_button_image, highlightthickness=0, command=next_word)
+green_button = Button(image=green_button_image, highlightthickness=0, command=save_progress)
 green_button.grid(column=1, row=1)
 
 next_word()
