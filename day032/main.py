@@ -1,92 +1,37 @@
-# ----- SmtpLib Notes ----- #
-# import smtplib
-#
-# my_gmail_email = "leanderscode@gmail.com"
-# gmail_password = "abcdefg123456789!!"
-# gmail_connection = smtplib.SMTP("smtp.gmail.com", port=587)
-#
-# my_yahoo_email = "leanderscode@yahoo.com"
-# yahoo_password = "mkmpusprtagcolim"
-# yahoo_connection = smtplib.SMTP("smtp.mail.yahoo.com", port=587)
-#
-# # connection.starttls()
-# # connection.login(user=my_gmail_email, password=gmail_password)
-# # connection.sendmail(from_addr=my_gmail_email,
-# #                     to_addrs=my_yahoo_email,
-# #                     msg="Subject:Hello and Test\n\nThis is the body of my email and how awesome is this?!?")
-# # connection.close()
-#
-# special_message = """
-#     Subject:Once More With Feeling\n\nOnce More, with Feeling is the seventh episode of the sixth season\n
-#     of the supernatural drama television series Buffy the Vampire Slayer (1997–2003) and the only one in\n
-#     the series performed as a musical.
-#     """
-#
-# # with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
-# #     connection.starttls()
-# #     connection.login(user=my_gmail_email, password=gmail_password)
-# #     connection.sendmail(
-# #         from_addr=my_gmail_email,
-# #         to_addrs=my_yahoo_email,
-# #         msg="Subject:Connection Test\n\nThis is the body of my email and how awesome is this?!?"
-# #     )
-#
-# with yahoo_connection as connection:
-#     connection.starttls()
-#     connection.login(user=my_yahoo_email, password=yahoo_password)
-#     connection.sendmail(
-#         from_addr=my_yahoo_email,
-#         to_addrs=my_gmail_email,
-#         msg="Subject:Yahoo Test\n\nThis is the body of my email and how awesome is this?!?"
-#     )
-
-# # ----- DateTime Notes ----- #
-# import datetime as dt
-#
-# now = dt.datetime.now()
-# year = now.year
-# month = now.month
-# day_of_the_week = now.weekday()
-# if year == 2021:
-#     print("Wear a face mask, damnit.")
-# print(year)
-# print(day_of_the_week)
-#
-# date_of_birth = dt.datetime(year=1976, month=5, day=24)
-# print(date_of_birth)
-
-# ----- Motivational Quotes Challenge ----- #
 import datetime as dt
-import smtplib
+import pandas
 import random
+import smtplib
 
-now = dt.datetime.now()
-today = now.weekday()
+today_today = dt.datetime.today()
+today_month = today_today.month
+today_day = today_today.day
+today = (today_month, today_day)
+
+data = pandas.read_csv("birthdays.csv")
+birthdays_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in data.iterrows()}
+
+if (today_month, today_day) in birthdays_dict:
+    birthday_person = birthdays_dict[(today_month, today_day)]
+    birthday_person_name = birthday_person["name"]
+    letter_number = random.randint(1, 3)
+    with open(f"letter_templates/letter_{letter_number}.txt") as file:
+        message = file.read()
+        message_body = message.replace("[NAME]", birthday_person_name)
 
 my_gmail_email = "leanderscode@gmail.com"
 gmail_password = "abcdefg123456789!!"
 gmail_connection = smtplib.SMTP("smtp.gmail.com", port=587)
-my_yahoo_email = "leanderscode@yahoo.com"
 
+birthday_person_email = birthday_person["email"]
 
-def random_quote():
-    with open("quotes.txt", mode="r") as file:
-        read_file = file.read().splitlines()
-        qotd = random.choice(read_file)
-        return qotd
+with gmail_connection as connect:
+    connect.starttls()
+    connect.login(user=my_gmail_email, password=gmail_password)
+    connect.sendmail(
+        from_addr=my_gmail_email,
+        to_addrs=birthday_person_email,
+        msg=f"Subject:Happy Birthday\n\n{message_body}"
+    )
 
-
-def send_email():
-    quote = random_quote()
-    with gmail_connection as connect:
-        connect.starttls()
-        connect.login(user=my_gmail_email, password=gmail_password)
-        connect.sendmail(
-            from_addr=my_gmail_email,
-            to_addrs=my_yahoo_email,
-            msg=f"Subject:Monday's Motivation\n\n{quote}"
-        )
-
-
-if today == 0:
-    send_email()
+print(f"Sent a happy birthday message to {birthday_person_name}!")
