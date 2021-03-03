@@ -11,6 +11,7 @@ response.raise_for_status()
 4xx: you screwed up
 5xx: i (the server) screwed up
 """
+
 data = response.json()
 # {'iss_position': {'longitude': '74.1416', 'latitude': '4.4747'}, 'message': 'success', 'timestamp': 1614750671}
 print(data)
