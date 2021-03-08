@@ -10,7 +10,7 @@ parameters = {
 }
 
 response = requests.get(url="https://api.openweathermap.org/data/2.5/onecall", params=parameters)
-print(f"The response for this call is {response.raise_for_status()}")
+print(f"The response for this call is {response.status_code}")
 
 data = response.json()
 print(data)
