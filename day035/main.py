@@ -7,14 +7,14 @@ parameters = {
     "lat": 53.173180,
     "lon": 6.602950,
     "exclude": "current,minutely,daily,alerts",
-    "appid": "## ----- $SECRET ----- ##",
+    "appid": os.environ.get("OWM_API_KEY"),
 }
 
 proxy_client = TwilioHttpClient()
 proxy_client.session.proxies = {'https': os.environ['https_proxy']}
 
-account_sid = "## ----- $SECRET ----- ##"
-auth_token = "## ----- $SECRET ----- ##"
+account_sid = os.environ.get("TWI_API_SID")
+auth_token = os.environ.get("TWI_AUTH_TOKEN")
 client = Client(account_sid, auth_token, http_client=proxy_client)
 
 response = requests.get(url="https://api.openweathermap.org/data/2.5/onecall", params=parameters)
@@ -26,8 +26,8 @@ weather_data = response.json()["hourly"]
 def send_rain_alert():
     message = client.messages.create(
         body=" It's going to rain today. Bring an umbrella.️",
-        from_='## ----- $SECRET ----- ##',
-        to='## ----- $SECRET ----- ##'
+        from_=os.environ.get("FROM_PHONE"),
+        to=os.environ.get("TO_PHONE")
     )
 
     print(message.status)
