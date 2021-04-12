@@ -38,13 +38,25 @@ headers = {
 pixel_endpoint = f"{graph_endpoint}/graph1"
 
 today = datetime.now()
-print(today)
+formatted_today = today.strftime("%Y%m%d")
 
 pixel_params = {
-    "date": today.strftime(),
+    "date": formatted_today,
     "quantity": "45",
 }
 
 # # post a pixel [https://docs.pixe.la/entry/post-pixel]
 # response = requests.post(url=pixel_endpoint, json=pixel_params, headers=headers)
 # print(response.text)
+
+update_params = {
+    "quantity": "240",
+}
+
+# # update a pixel [https://docs.pixe.la/entry/put-pixel]
+# response = requests.put(url=f"{pixel_endpoint}/{formatted_today}", json=update_params, headers=headers)
+# print(response.text)
+
+# delete a pixel [https://docs.pixe.la/entry/delete-pixel]
+response = requests.delete(url=f"{pixel_endpoint}/20200412", headers=headers)
+print(response.text)
