@@ -57,6 +57,21 @@ update_params = {
 # response = requests.put(url=f"{pixel_endpoint}/{formatted_today}", json=update_params, headers=headers)
 # print(response.text)
 
-# delete a pixel [https://docs.pixe.la/entry/delete-pixel]
-response = requests.delete(url=f"{pixel_endpoint}/20200412", headers=headers)
+# # delete a pixel [https://docs.pixe.la/entry/delete-pixel]
+# response = requests.delete(url=f"{pixel_endpoint}/20200412", headers=headers)
+# print(response.text)
+
+update_profile_params = {
+    "displayName": "RainLeander",
+    "gravatarIconEmail": "rainsdance@gmail.com",
+    "timezone": "Europe/Amsterdam",
+    "pinnedGraphID": "graph1",
+}
+
+# # update profile [https://docs.pixe.la/entry/put-profile]
+# response = requests.put(url=f"https://pixe.la/@{USERNAME}", json=update_profile_params, headers=headers)
+# print(response.text)
+
+# delete a graph [https://docs.pixe.la/entry/delete-graph]
+response = requests.delete(url=f"{graph_endpoint}/testgraph1", headers=headers)
 print(response.text)
