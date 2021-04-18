@@ -3,6 +3,7 @@ from datetime import datetime
 
 APP_ID = "031d8a77"
 API_KEY = "e526412b17bfa722fc3ad487a8b5d0f5"
+TOKEN = "Bearer TheQuickBrownFoxJumpsOverTheå6514761241317;alksdjfhyqerpigunvz.kjxbcvil;uaehrwgt"
 
 exercise_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
 sheety_endpoint = "https://api.sheety.co/a72fb3c79b3dabb89545d0ff6200f208/workoutTracking/workouts"
@@ -13,6 +14,7 @@ exercise_headers = {
 }
 sheety_headers = {
     "Content-Type": "application/json",
+    "Authorization": TOKEN,
 }
 
 query = input("Tell me which exercises you did: ")
@@ -43,6 +45,6 @@ for exercise in result["exercises"]:
         }
     }
 
-sheety_response = requests.post(url=sheety_endpoint, json=sheet_inputs)
+sheety_response = requests.post(url=sheety_endpoint, json=sheet_inputs, headers=sheety_headers)
 
 print(sheety_response.text)
