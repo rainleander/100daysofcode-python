@@ -1,9 +1,7 @@
+from pprint import pprint
 import requests
 
-sheety_endpoint = "https://api.sheety.co/a72fb3c79b3dabb89545d0ff6200f208/flightDeals/prices"
-sheety_headers = {
-    "Content-Type": "application/json",
-}
+SHEETY_PRICES_ENDPOINT = YOUR SHEETY PRICES ENDPOINT
 
 
 class DataManager:
@@ -12,7 +10,7 @@ class DataManager:
         self.destination_data = {}
 
     def get_destination_data(self):
-        response = requests.get(url=sheety_endpoint, headers=sheety_headers)
+        response = requests.get(url=SHEETY_PRICES_ENDPOINT)
         data = response.json()
         self.destination_data = data["prices"]
         return self.destination_data
@@ -25,7 +23,7 @@ class DataManager:
                 }
             }
             response = requests.put(
-                url=f"{sheety_endpoint}/{city['id']}",
+                url=f"{SHEETY_PRICES_ENDPOINT}/{city['id']}",
                 json=new_data
             )
             print(response.text)
