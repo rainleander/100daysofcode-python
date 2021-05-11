@@ -1,14 +1,33 @@
-h1 {
-    color: red;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 100px;
-}
+/*********** TAG SELECTORS ***********/
+    h1 {
+        color: red;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 100px;
+    }
 
-img {
-    background-color: red;
-}
+    img {
+        background-color: red;
+    }
 
-p{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-}
+    p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+    }
+
+/*********** CLASS SELECTORS ***********/
+/* there can be many same named class on each page */
+
+    .bacon {
+        background-color: green;
+    }
+
+    .broccoli {
+        background-color: red;
+    }
+
+/*********** ID SELECTORS ***********/
+/* there can be only one per page */
+
+    #heading {
+        color: green;
+    }
