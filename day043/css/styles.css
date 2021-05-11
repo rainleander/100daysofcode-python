@@ -1,0 +1,26 @@
+    body {
+        background-color: #CBC3E3;
+    }
+
+    p {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1, h3 {
+        color: purple;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    a {
+        color: purple;
+    }
+
+    hr {
+        border-style: none;
+        background-color: #CBC3E3;
+        width: 5%;
+        border: thick dotted purple;
+        border-right-style: none;
+        border-bottom-style: none;
+        border-left-style: none;
+    }
