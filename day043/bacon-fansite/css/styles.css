@@ -5,8 +5,8 @@
         font-size: 100px;
     }
 
-    img {
-        background-color: red;
+    img:hover {
+        background-color: gold;
     }
 
     p {
