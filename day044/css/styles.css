@@ -1,6 +1,106 @@
     body {
-        background-color: purple;
+        margin: 0;
+        font-family: 'Merriweather', serif;
     }
-    p {
-        color: white;
+    h1 {
+        margin: 50px auto 0 auto;
+        font-size: 5.625rem;
+        font-family: 'Sacramento', cursive;
+    }
+
+    h2 {
+        line-height: 2;
+        font-weight: normal;
+        font-size: 2.5rem;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    h3 {
+        color: #b4aee8;
+        font-weight: 800;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    hr {
+        border-style: none;
+        background-color: #93329;
+        width: 5%;
+        border: thick dotted purple;
+        border-right-style: none;
+        border-bottom-style: none;
+        border-left-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: #440a67;
+        padding: 50px 20px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .top {
+        padding-top: 100px;
+        text-align: center;
+        background-color: #440a67;
+        color: #ffe3fe;
+        margin: auto;
+        position: relative;
+    }
+
+    .middle {
+        padding: 50px;
+        text-align: center;
+        background-color: #93329e;
+        color: #ffe3fe;
+        margin: auto;
+    }
+
+    .skill-row {
+        width: 50%;
+        margin: 100px auto;
+        text-align: left;
+        line-height: 2;
+    }
+
+    .bottom {
+        text-align: center;
+        background-color: #b4aee8;
+        color: #ffe3fe;
+        padding: 50px;
+        margin: auto;
+    }
+
+    .top-cloud {
+        position: absolute;
+        right: 150px;
+        top: 100px;
+    }
+
+    .bottom-cloud {
+        position: absolute;
+        left: 150px;
+        top: 400px;
+    }
+
+    .mountain-img {
+        position: relative;
+        bottom: 0;
+    }
+
+    .avo-image {
+        display: block;
+        max-width: 100px;
+        width: auto;
+        height: auto;
+        float: left;
+        margin-right: 30px;
+    }
+
+    .computer-image {
+        display: block;
+        max-width: 100px;
+        width: auto;
+        height: auto;
+        float: right;
+        margin-left: 30px;
     }
